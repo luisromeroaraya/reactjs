@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# I'll be following the Openclassrooms tutorial called ["Build web apps with reactjs"](https://openclassrooms.com/fr/courses/4286486-build-web-apps-with-reactjs)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
