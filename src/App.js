@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App(props) { // Added props as a parameter to accept props
+function App(props) { // Added props as a parameter to accept props from parent
   return (
     <div className="App">
       <header className="App-header">
