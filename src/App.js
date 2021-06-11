@@ -1,12 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import Clock from "./components/Clock";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App(props) { // Added props as a parameter to accept props from parent
+function App(props) {
+  // Added props as a parameter to accept props from parent
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Hello {props.world}!</h1> 
+        <h1>Hello {props.world}!</h1>
         <img src={logo} className="App-logo" alt="logo" />
+        <Clock />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
