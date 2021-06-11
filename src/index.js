@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+let world="world"; //Create the variable to pass it later into the App component, don't forget the {} when you pass a variable or a boolean or a number
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App world={world}/> 
   </React.StrictMode>,
   document.getElementById('root')
 );
