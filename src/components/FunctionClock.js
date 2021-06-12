@@ -8,7 +8,11 @@ function FunctionClock() {
     setCtime(time);
   };
   setInterval(updateTime, 1000);
-  return <p className="App-function-clock">The time is {Ctime} (Function Component)</p>;
+  return (
+    <p className="App-function-clock">
+      The time is {Ctime} (Function Component)
+    </p>
+  );
 }
 
 export default FunctionClock;
