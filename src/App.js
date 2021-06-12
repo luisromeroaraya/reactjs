@@ -1,4 +1,5 @@
-import Clock from "./components/Clock";
+import FunctionClock from "./components/FunctionClock";
+import ClassClock from "./components/ClassClock";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -9,7 +10,8 @@ function App(props) {
       <header className="App-header">
         <h1>Hello {props.world}!</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <Clock />
+        <FunctionClock />
+        <ClassClock />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
