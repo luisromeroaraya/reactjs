@@ -1,6 +1,6 @@
 import FunctionClock from "./components/FunctionClock";
 import ClassClock from "./components/ClassClock";
-import ClassButton from './components/ClassButton';
+import ClassButtonContainer from './components/ClassButtonContainer';
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -13,7 +13,7 @@ function App(props) {
         <img src={logo} className="App-logo" alt="logo" />
         <FunctionClock />
         <ClassClock />
-        <ClassButton />
+        <ClassButtonContainer />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
