@@ -5,7 +5,7 @@ class ClassButton extends Component {
     super(props);
     this.click = this.click.bind(this);
   }
-  click(){
+  click() {
     this.props.click();
   }
   render() {

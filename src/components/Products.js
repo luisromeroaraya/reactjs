@@ -51,18 +51,23 @@ var products = {
 class Products extends Component {
   constructor(props) {
     super(props)  
+    this.clickStock = this.clickStock.bind(this);
     this.state = {
       products : products,
       filterText: '',
       inStockOnly: false
     }
   }
-  
+  clickStock() {
+    this.setState((prevState, props) => ({
+      inStockOnly: !prevState.inStockOnly
+  }));
+  }
   render() {
     return (
       <div className="App-products">
         <h2>Products</h2>
-        <ProductsFilters filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
+        <ProductsFilters filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} clickStock={this.clickStock} />
         <ProductTable products={this.state.products} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
         <ProductForm />
       </div>
