@@ -6,10 +6,12 @@ class ProductTable extends Component {
   constructor(props) {
     super(props);
     this.sortByKeyAndOrder = this.sortByKeyAndOrder.bind(this);
+    this.handleSort = this.handleSort.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       sort: {
-        column: 'price',
-        direction: 'desc',
+        column: 'name',
+        direction: 'asc',
       }
     };
   }
@@ -31,20 +33,31 @@ class ProductTable extends Component {
     let productsAsArray = Object.keys(this.props.products).map((pid) => this.props.products[pid]);
     return productsAsArray.sort(this.sortByKeyAndOrder);
   }
+  handleSort(column, direction) {
+    this.setState({
+      sort: {
+        column: column,
+        direction: direction
+      }
+    });
+  }
+  handleDelete(id) {
+    this.props.onDelete(id);
+  }
   render() {
     let products = [];
     this.sortProducts().forEach((product) => {
       if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
         return;
       }
-      products.push(<ProductTableRow product={product} key={product.id} />);
+      products.push(<ProductTableRow product={product} key={product.id} onDelete={this.handleDelete}/>);
     });
     return (
-      <table classname="App-product-table">
+      <table className="App-product-table">
         <thead>
           <tr>
-            <ProductTableHeader column="name" currentSort={this.state.sort} />
-            <ProductTableHeader column="price" currentSort={this.state.sort} />
+            <ProductTableHeader column="name" currentSort={this.state.sort} onSort={this.handleSort} />
+            <ProductTableHeader column="price" currentSort={this.state.sort} onSort={this.handleSort} />
           </tr>
         </thead>
         <tbody>{products}</tbody>

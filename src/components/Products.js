@@ -50,26 +50,52 @@ var products = {
 
 class Products extends Component {
   constructor(props) {
-    super(props)  
-    this.clickStock = this.clickStock.bind(this);
+    super(props);
     this.state = {
-      products : products,
-      filterText: '',
-      inStockOnly: false
-    }
+      products: products,
+      filterText: "",
+      inStockOnly: false,
+    };
+    this.handleFilter = this.handleFilter.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
-  clickStock() {
-    this.setState((prevState, props) => ({
-      inStockOnly: !prevState.inStockOnly
-  }));
+  handleFilter(filterInput) {
+    this.setState(filterInput);
+  }
+  handleAdd(product) {
+    this.setState((prevState) => {
+      if (!product.id) {
+        product.id = Object.keys(prevState.products).length + 1;
+      }
+      let products = prevState.products;
+      products[product.id] = product;
+      return { products };
+    });
+  }
+  handleDelete(id) {
+    this.setState((prevState) => {
+      let products = prevState.products;
+      delete products[id];
+      return {products};
+    });
   }
   render() {
     return (
       <div className="App-products">
         <h2>Products</h2>
-        <ProductsFilters filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} clickStock={this.clickStock} />
-        <ProductTable products={this.state.products} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
-        <ProductForm />
+        <ProductsFilters
+          filterText={this.state.filterText}
+          inStockOnly={this.state.inStockOnly}
+          handleFilter={this.handleFilter}
+        />
+        <ProductTable
+          products={this.state.products}
+          filterText={this.state.filterText}
+          inStockOnly={this.state.inStockOnly}
+          onDelete={this.handleDelete}
+        />
+        <ProductForm onAdd={this.handleAdd} />
       </div>
     );
   }
