@@ -18,7 +18,7 @@ class ClassButtonContainer extends Component {
     }
     render() {
         return (
-            <div className="App-class-button-container" style={{height: '100px', width: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: this.state.color}}>
+            <div className="App-class-button-container" style={{height: '50px', width: '200px', backgroundColor: this.state.color}}>
                 <ClassButton click={this.click} currentClicks={this.state.clicks}/>
             </div>
         )

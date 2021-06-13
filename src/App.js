@@ -1,6 +1,7 @@
 import FunctionClock from "./components/FunctionClock";
 import ClassClock from "./components/ClassClock";
-import ClassButtonContainer from './components/ClassButtonContainer';
+import ClassButtonContainer from "./components/ClassButtonContainer";
+import Products from './components/Products';
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -13,7 +14,12 @@ function App(props) {
         <img src={logo} className="App-logo" alt="logo" />
         <FunctionClock />
         <ClassClock />
+      </header>
+      <main className="App-main">
         <ClassButtonContainer />
+        <Products />
+      </main>
+      <footer className="App-footer">
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -25,7 +31,7 @@ function App(props) {
         >
           Learn React
         </a>
-      </header>
+      </footer>
     </div>
   );
 }
